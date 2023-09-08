@@ -36,8 +36,8 @@ Create a ```.gitsync``` folder in your repository root's and install gitsync.
 
 ```bash
 cd your-git-repo
-mkdir .gitsync && cd .gitsync
-curl https://raw.githubusercontent.com/ioops-io/gitsync/main/gitsync.py
+mkdir .gitsync
+curl https://raw.githubusercontent.com/ioops-io/gitsync/main/gitsync.py -o .gitsync/gitsync.py
 ```
 
 ### Run gitsync
