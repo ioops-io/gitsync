@@ -1,0 +1,34 @@
+gitsync:
+  #Strategy to update target
+  #  update (Default)
+  #   - On this strategy the process will update target branch and push:
+  #     git pull -> sync -> git add/update -> git push
+  #     Target branch should push from remote (without PR)
+  #
+  #  create-branch
+  #   - On this strategy the process will create a new branch and push differences to it.
+  #     If the branch already exist, it will be updated.
+  #     This strategy is usefull to manually create a PR to update another branch (like develop, main)     
+  strategy: create-branch
+  workdir: ~/Development/Workspaces/ioops/gitsync-test #Default: ~/gitsync if not provided.
+  source:
+    # Either inform https://git.remote.fqdn -  Giving repository remote HTTPS address will force a git clone repository
+    # or repository relative to workdir
+    repository: source
+    path: pipelines # Relative to repository's root
+    branch: main
+  target:
+    repository: target
+    path: pipelines # Relative to repository's root
+    branch: main
+  sync:
+    mirror: true #If true, mirror target based on source. If false only files existent in source will be changed.
+    # TODO: Would be lice...
+    # include: # Rysnc like include/exclude pattern list
+    #   - dir1
+    #   - file*
+    #   - dir1/***
+    # exclude: # Rysnc like include/exclude pattern list
+    #   - dir1
+    #   - file*
+    #   - dir1/***
