@@ -14,14 +14,18 @@ In yours ```.gitsync``` folder create a file **.yml** (or as many as needed) con
 
 ```yaml
 gitsync:
-  strategy: patch
+  strategy: create-branch
+  workdir: ~/Development/Workspaces/ioops/gitsync-test #Default: ~/gitsync if not provided.
   source:
-    path: https://git.remote.fqdn/source/folderX
+    repository: source
+    path: pipelines # Relative to repository's root
     branch: main
   target:
-    path: source/folderY
-    branch: develop
----
+    repository: target
+    path: pipelines # Relative to repository's root
+    branch: main
+  sync:
+    mirror: true
 ```
 
 Check [sample gitsync](.gitsync_sample) files for configuration scenarios.
@@ -33,14 +37,14 @@ Create a ```.gitsync``` folder in your repository root's and install gitsync.
 ```bash
 cd your-git-repo
 mkdir .gitsync && cd .gitsync
-curl https://gitsync.ioops.io/install.sh | bash
+curl https://raw.githubusercontent.com/ioops-io/gitsync/main/gitsync.py
 ```
 
 ### Run gitsync
 
 ```bash
 cd your-git-repo
-python3 .gitsync/gitsync.py
+python3 .gitsync/gitsync.py -f .gitsync/gitsync.yml
 ```
 
 You can run manually or thru your CI/CD pipelines as regular shell script.
