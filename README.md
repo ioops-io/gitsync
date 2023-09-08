@@ -4,13 +4,15 @@
 
 ![diagram](usecase.drawio.png)
 
-You work in different projects and you will not able make references during CI/CD or would you want to share code among unrelated project. The **Gitsync** will help you making two diferrent repositories in sync.
+Either you work in different projects and you will not able make references during CI/CD or would you want to share code among unrelated project. The **Gitsync** will help you making two diferrent repositories's folder in sync.
 
 ## Implementation
 
 ### Configuration example
 
-In yours ```.gitsync``` folder create a file **.yml** (or as many as needed) configuring gitsync.
+In yours ```.gitsync``` folder create a configuration file **NAME.yml** to configuring gitsync.
+
+**Example:**
 
 ```yaml
 gitsync:
